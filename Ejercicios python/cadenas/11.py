@@ -1,0 +1,7 @@
+info = input("Introduce el nombre del producto")
+precio = input("precio unitario?")
+unidades = input("cuantas unidades?")
+resultado = float(precio) * int(unidades)
+precio2 = float(precio).round(2)
+precio3 = precio2.zfill(5)
+print(f"{info}: {precio3} €/ud")
