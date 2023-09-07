@@ -1,7 +1,7 @@
 contraseña = "xert"
 
 while True:
-    respuesta  = input("Intrudce la contraseña: ")
+    respuesta  = input("Introudce la contraseña: ")
     respuesta = respuesta.lower()
     if respuesta == contraseña:
         print("Contraseña correcta")
