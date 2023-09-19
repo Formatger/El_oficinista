@@ -39,7 +39,7 @@ while True:
 
     if decision.lower() == "eliminar cliente":
         nif = input("Introduce el NIF del cliente")
-        cliente.pop(nif)
+        # cliente.pop(nif)
         
         # Eliminar el registro de la base de datos
         cursor.execute("DELETE FROM Clientes WHERE NIF=?", (nif,))
@@ -54,15 +54,26 @@ while True:
         print(cliente_encontrado)
 
     if decision.lower() == "listar clientes":
-        for valor, result in cliente.items():
-            print(f"{valor}___{result['nombre']}")
+        cursor.execute("SELECT * FROM Clientes")
+        registros = cursor.fetchall()
+        for registro in registros:
+            print(registro)
+        # for valor, result in cliente.items():
+        #      print(f"{valor}___{result['nombre']}")
+        
     
     if decision.lower() == "listar preferentes":
-        preferente = []
-        for valor, data in cliente.items():
-            if data['preferente'] == "True":
-                preferente.append(data['nombre'])
-        print(preferente)
+        cursor.execute("SELECT * FROM Clientes")
+        registros = cursor.fetchall()
+        for registro in registros:
+            if registro[5] == "True":
+                print(registro)
+                
+        # preferente = []
+        # for valor, data in cliente.items():
+        #     if data['preferente'] == "True":
+        #         preferente.append(data['nombre'])
+        # print(preferente)
 
     if decision.lower() == "terminar":
         data.commit()
