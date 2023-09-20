@@ -1,12 +1,16 @@
 import sqlite3
 
-conexion = sqlite3.connect("C:\\Users\\Merche\\Desktop\\El Oficinista\\Ejercicios python\\Exercici IT ACADEMY\\data.db")
+conexion = sqlite3.connect(
+    "/Users/albertformatger/Desktop/El_oficinista-1/Ejercicios python/Exercici IT ACADEMY/data.db"
+)
 cursor = conexion.cursor()
 
-cursor.execute('''SELECT person_name, person_country, person_dob 
+cursor.execute(
+    """SELECT person_name, person_country, person_dob 
                FROM tb_person 
                WHERE person_dod IS NULL 
-               ORDER BY person_dob''')
+               ORDER BY person_dob"""
+)
 
 resultado = cursor.fetchall()
 print(resultado)
