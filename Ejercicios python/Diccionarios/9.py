@@ -13,3 +13,4 @@ while True:
         break
 for factura, precio in facturas.items():
     print(f"Nº de factura: {factura} - {precio}€ \n")
+
