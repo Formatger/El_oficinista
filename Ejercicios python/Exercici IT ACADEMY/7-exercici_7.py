@@ -6,8 +6,9 @@ conexion = sqlite3.connect(
 cursor = conexion.cursor()
 
 cursor.execute(
-    """DELETE FROM tb_movie
-       WHERE movie_title = 'La Gran Familia Española'"""
+    """UPDATE tb_movie 
+               SET movie_genre_id = 3
+               WHERE movie_title = 'Ocho Apellidos Catalanes' """
 )
 
 conexion.commit()

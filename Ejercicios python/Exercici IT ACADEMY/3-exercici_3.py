@@ -1,13 +1,17 @@
 import sqlite3
 
-conexion = sqlite3.connect("C:\\Users\\Merche\\Desktop\\El Oficinista\\Ejercicios python\\Exercici IT ACADEMY\\data.db")
+conexion = sqlite3.connect(
+    "/Users/albertformatger/Desktop/El_oficinista-1/Ejercicios python/Exercici IT ACADEMY/data.db"
+)
 cursor = conexion.cursor()
 
-cursor.execute('''SELECT genre_name, COUNT(movie_genre_id) 
+cursor.execute(
+    """SELECT genre_name, COUNT(movie_genre_id) 
                FROM tb_genre JOIN tb_movie 
                ON movie_genre_id = genre_id 
                GROUP BY genre_name 
-               ORDER BY COUNT (movie_genre_id) DESC''')
+               ORDER BY COUNT (movie_genre_id) DESC"""
+)
 info = cursor.fetchall()
 print(info)
 
