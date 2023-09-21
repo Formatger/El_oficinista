@@ -31,6 +31,7 @@ def agregar_factura():
     conexion.commit()
     entrada_num_factura.delete(0,tk.END)
     entrada_valor_factura.delete(0,tk.END)
+    mostrar_facturas_pendientes()
     
 
 def liquidar_factura():
@@ -41,6 +42,8 @@ def liquidar_factura():
         cursor.execute('''DELETE FROM data WHERE factura = (?) ''', (num_factura,))
     conexion.commit()
     entrada_num_factura_liquidar.delete(0, tk.END)
+    mostrar_facturas_pendientes()
+
 
 def mostrar_facturas_pendientes():
     for item in treeview.get_children():
